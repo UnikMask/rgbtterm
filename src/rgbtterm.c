@@ -19,7 +19,7 @@ const char *COL_PATH = "../termcolors.conf";
 
 rgb new_rgb(unsigned int gui_int) {
 	rgb ret_rgb = {
-		(gui_int >> 16 ) & 0xFF,
+		(gui_int >> 16) & 0xFF,
 		(gui_int >> 8) & 0xFF,
 		gui_int & 0xFF
 	};
@@ -61,13 +61,10 @@ int new_term_arr (const char fp[255], termv *term_out) {
 	}
 	else goto func_fail;
 
-
-
 func_fail: // In case of function failure - safely exit function.
 	if (errcode != E_MALLOC) free_termv(term_out);
 	fclose(colstream);
 	return errcode;
-
 }
 
 
